@@ -1,20 +1,32 @@
 let xgoingback = false;
 let ygoingback = false;
 class ball{
-    constructor(x,y,d) {
+    constructor(x,y,d,xs,ys) {
         this.pos = createVector(x,y);
         this.d = d;
-        this.speed= createVector(50,50);
+        this.speed = createVector(xs,ys);
+        this.acc = -0.1; 
     }
     go(op) {
+        if(this.speed.x == 0 | this.speed.y == 0) {
+            noLoop();
+        }
         if(op == "x+") {
             this.pos.x = this.pos.x + this.speed.x;
+            this.speed.x = this.speed.x + this.acc;
+            console.log(this.speed.x);
         } else if(op == "x-"){
-            this.pos.x = this.pos.x - this.speed.x ;
+            this.pos.x = this.pos.x - this.speed.x;
+            this.speed.x = this.speed.x + this.acc;
+            console.log(this.speed.x);
         } else if(op == "y+") { 
-            this.pos.y = this.pos.y + this.speed.y; 
+            this.pos.y = this.pos.y + this.speed.y;
+            this.speed.y = this.speed.y + this.acc; 
+            console.log(this.speed.y);
         } else if(op == "y-") {
-            this.pos.y = this.pos.y - this.speed.y; 
+            this.pos.y = this.pos.y - this.speed.y;
+            this.speed.y = this.speed.y + this.acc; 
+            console.log(this.speed.y);
         }
         
     }
@@ -46,7 +58,7 @@ class ball{
 
     show() {
         noStroke();
-        fill("green");
+        fill(255);
         circle(this.pos.x,this.pos.y,this.d);        
     }
 }

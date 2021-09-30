@@ -1,11 +1,16 @@
-let golyo;
-function setup() {
-    createCanvas(600,600);
-    golyo = new ball(width/2,height/2,20);
-}
+let golyok = [];
+let num = 5;
 
+function setup() {
+    createCanvas(600,400);
+    for(let i = 0; i < num; i++) {
+        golyok[i] = new ball(random(1,600-1),random(1,400-1),20,random(-0.1,0.1));
+    }
+}
 function draw() {
     background(61);
-    golyo.show();
-    golyo.update();
+    for(let j = 0; j < num; j++){
+        golyok[j].update();
+        golyok[j].show();
+    }
 }

@@ -1,12 +1,13 @@
 let xgoingback = false;
 let ygoingback = false;
+let limit = 0.3
 class ball{
-    constructor(x,y,d) {
+    constructor(x,y,d,acc_changer) {
         this.pos = createVector(x,y);
         this.d = d;
         this.speed = createVector(10,25);
         this.acc = 0; 
-        this.acc_changer = 0.1;
+        this.acc_changer = acc_changer;
         this.c = ["green","white","red"];
         this.actual = this.c[1];
     }
@@ -46,6 +47,9 @@ class ball{
             console.log(this.speed.y);
             this.show();
         } else {
+
+            
+
             if(this.pos.x >= width) {
                 xgoingback = true;
             } else if(this.pos.y >= height) {
@@ -69,8 +73,8 @@ class ball{
             }
 
             this.acc = this.acc + this.acc_changer;
-            if(this.acc >= 1.5){
-                this.acc_changer = -0.1;
+            if(this.acc >= limit){
+                this.acc_changer = -this.acc_changer;
             }
             
         }       

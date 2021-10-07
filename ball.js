@@ -5,7 +5,7 @@ class ball{
     constructor(x,y,d,acc_changer) {
         this.pos = createVector(x,y);
         this.d = d;
-        this.speed = createVector(10,25);
+        this.speed = createVector(1,1);
         this.acc = 0; 
         this.acc_changer = acc_changer;
         this.c = ["green","white","red"];

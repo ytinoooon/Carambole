@@ -1,5 +1,5 @@
 let golyok = [];
-let num = 10;
+let num = 50;
 let amount = num - 1;
 let d = 20;
 let limit = 5 ;
@@ -12,6 +12,7 @@ function setup() {
 function phisics() {
     hit_the_wall();
     stop_and_deaccelerate();
+    collision();
 }
 function draw() {
     background(61);

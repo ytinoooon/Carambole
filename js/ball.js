@@ -10,6 +10,8 @@ let ayc = 0.01;//   ACCELERATION CHANGERS
 // THE CLASS
 class ball {
     constructor(x,y,d) {
+        this.xgoingback = false;
+        this.ygoingback = false;
         this.pos = createVector(x,y);// position
         this.d = d; // diameter
         this.speed = createVector(sx,sy); // speed
